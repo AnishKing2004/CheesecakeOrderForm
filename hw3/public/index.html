@@ -10,6 +10,7 @@
 	 <script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/>
  	</script>
+    <script src="/javascripts/app.js"></script>
 </head>
 <body>
 
@@ -53,43 +54,7 @@
         <button type="button" id="orderButton">Order</button>
     </form>
 
-    <script>
-        $(function() {
-            $("#orderButton").click(function() {
-                var notes = $("#notes").val();
-                var quantity = $("#quantity").val();
-                var flavor = $("input[name='Flavor']:checked").val();
 
-                // Check if the notes contain vegan
-                if (notes.toLowerCase().includes("vegan")) {
-                    alert("Please note: our cheesecakes contain dairy.");
-                } else {
-                    // Replace form with order details
-                    $("#orderForm").html("Thank you! Your order has been placed.<br>" +
-                                         "Topping: " + flavor + "<br>" +
-                                         "Quantity: " + quantity + "<br>" +
-                                         "Notes: " + notes);
-                }
-            });
-
-            // Show the dropdown menu when the mouse enters over Jan
-            $("#selectedMonth, #monthDropdown").mouseenter(function() {
-                $("#monthDropdown").show();
-            });
-
-            // Hide the dropdown menu when the mouse leaves the dropdown area
-            $("#monthDropdown").mouseleave(function() {
-                $("#monthDropdown").hide();
-            });
-
-            // Change the month when a dropdown item is clicked
-            $("#monthDropdown a").click(function() {
-                var selectedMonth = $(this).text();
-                $("#selectedMonth").text(selectedMonth);
-                $("#monthDropdown").hide();
-            });
-        });
-    </script>
 
     <!-- Dropdown for months -->
     <div class="monthContainer">
