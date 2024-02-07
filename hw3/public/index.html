@@ -1,0 +1,120 @@
+<!--Anish Karumuri-->
+<!--Boilerplate-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cheesecake Order Form</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	 <script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/>
+ 	</script>
+</head>
+<body>
+
+	<!--This is the title of the webpage the user can see-->
+	<h1>Cheesecake Order Form</h1>
+
+		
+	<!--This is for the cheesecake image; the image is shown via the image url-->
+	<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg/1200px-Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg" alt="Cheesecake Slice" width="200" height="150">
+
+
+
+	<!--This is the for the Quantity Toppings -->
+	<!--This is for the notes and text area and the order button-->
+    <!-- Modify the form and its elements by adding IDs -->
+    <form id="orderForm">
+        <label>Quantity Toppings</label>
+        <!--This table has the dropdown for the quantity as one column-->
+		<!--This table has the 3 radio buttons as the other column-->
+		<!--The use of the table lets them appear side by side-->
+        <table>
+            <tr>
+                <td>
+                    <select id="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+                <td>
+                    <!-- Ensure each radio input has a unique value -->
+                    <label><input type="radio" name="Flavor" value="Plain"> Plain</label><br>
+                    <label><input type="radio" name="Flavor" value="Cherry"> Cherry</label><br>
+                    <label><input type="radio" name="Flavor" value="Chocolate"> Chocolate</label>
+                </td>
+            </tr>
+        </table>
+
+        <label for="notes">Notes:</label><br>
+        <textarea id="notes" rows="4" cols="50" placeholder="Enter any special instruction here."></textarea><br>
+        <button type="button" id="orderButton">Order</button>
+    </form>
+
+    <script>
+        $(function() {
+            $("#orderButton").click(function() {
+                var notes = $("#notes").val();
+                var quantity = $("#quantity").val();
+                var flavor = $("input[name='Flavor']:checked").val();
+
+                // Check if the notes contain vegan
+                if (notes.toLowerCase().includes("vegan")) {
+                    alert("Please note: our cheesecakes contain dairy.");
+                } else {
+                    // Replace form with order details
+                    $("#orderForm").html("Thank you! Your order has been placed.<br>" +
+                                         "Topping: " + flavor + "<br>" +
+                                         "Quantity: " + quantity + "<br>" +
+                                         "Notes: " + notes);
+                }
+            });
+
+            // Show the dropdown menu when the mouse enters over Jan
+            $("#selectedMonth, #monthDropdown").mouseenter(function() {
+                $("#monthDropdown").show();
+            });
+
+            // Hide the dropdown menu when the mouse leaves the dropdown area
+            $("#monthDropdown").mouseleave(function() {
+                $("#monthDropdown").hide();
+            });
+
+            // Change the month when a dropdown item is clicked
+            $("#monthDropdown a").click(function() {
+                var selectedMonth = $(this).text();
+                $("#selectedMonth").text(selectedMonth);
+                $("#monthDropdown").hide();
+            });
+        });
+    </script>
+
+    <!-- Dropdown for months -->
+    <div class="monthContainer">
+        <h3>Orders for <span id="selectedMonth">Jan</span></h3>
+        <div id="monthDropdown" class="dropdownContent">
+            <a href="#">Jan</a>
+            <a href="#">Feb</a>
+            <a href="#">Mar</a>
+            <a href="#">Apr</a>
+            <a href="#">May</a>
+            <a href="#">Jun</a>
+            <a href="#">Jul</a>
+            <a href="#">Aug</a>
+            <a href="#">Sep</a>
+            <a href="#">Oct</a>
+            <a href="#">Nov</a>
+            <a href="#">Dec</a>
+        </div>
+    </div>
+ 
+	<ul>
+  		<li>11 Cherry</li>
+  		<li>17 Chocolate</li>
+ 		<li>31 Plain</li>
+	</ul>
+
+</body>
+</html>

@@ -1,8 +1,162 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* Anish Karumuri */
+/* Set font family */
+* {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
 }
 
-a {
-  color: #00B7FF;
+/* Set a background color for the body */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #f0e68c, #87cefa, #98fb98, #ffd700, 
+        #ffb6c1, #b0e0e6, #ffa07a, #e0ffff, #fffaf0, 
+        #f5f5dc, #ffe4e1, #f0fff0, #ffdead, #fafad2, 
+        #ffc0cb, #ffe4b5, #fffacd, #fdf5e6, #ffebcd, #faf0e6);
+    background-size: 300% 300%;
+    animation: color 30s ease-in-out infinite;
+}
+
+/* Defines keyframes for background animation */
+@keyframes color {
+    0% {
+        background-position: 0 50%;
+    }
+    25% {
+        background-position: 50% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/* Center the h1 title horizontally and vertically */
+h1 {
+    text-align: center;
+    line-height: 2;
+    margin: 20px 0;
+    color: #333;
+    height: 50px;
+    font-family: cursive;
+}
+
+/* Style the image */
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Style the form elements */
+form {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* Style for label elements */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Style for table elements */
+table {
+    width: 10%;
+    margin: 10px auto;
+    border-collapse: collapse;
+    margin-top: 10px;
+    position: center;
+}
+
+/* Style for table data elements */
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Style the textarea */
+textarea {
+    width: 20%;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+
+/* Style the button */
+button {
+    background-color: transparent;
+    padding: 10px 20px;
+    border: 1px solid #ffc0cb;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Change the background color on hover */
+button:hover {
+    background-color: #ffc0cb;
+    color: #fff;
+}
+
+/* Style the Total Orders section */
+h3 {
+    height: 50px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Style for ul elements */
+ul {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+/* Style for li elements */
+li {
+    margin-bottom: 5px;
+}
+
+/* Style for the dropdown container */
+.monthContainer {
+    text-align: center;
+}
+
+/* Style for month dropdown */
+#selectedMonth {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+
+/* Dropdown content (positioned absolutely within the container) */
+.dropdownContent {
+    display: none;
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+/* Months inside the dropdown */
+.dropdownContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown months on hover */
+.dropdownContent a:hover {
+    background-color: #f1f1f1;
 }
