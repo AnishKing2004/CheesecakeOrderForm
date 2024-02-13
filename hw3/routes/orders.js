@@ -3,13 +3,17 @@ var router = express.Router();
 
 // Data for the orders
 const orders = [
-  { topping: 'cherry', quantity: "4" },
-  { topping: 'plain', quantity: "2" },
-  { topping: 'chocolate', quantity: "5" },
+  { topping: 'Cherry', quantity: "7" },
+  { topping: 'Plain', quantity: "7" },
+  { topping: 'Chocolate', quantity: "7" },
 ];
 
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
   // Using res.json() to send orders array as JSON
+  res.json(orders);
+});
+
+router.get('/', function(req, res, next) {
   res.json(orders);
 });
 
