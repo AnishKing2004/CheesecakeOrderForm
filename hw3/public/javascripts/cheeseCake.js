@@ -3,17 +3,27 @@ $(function() {
     $("#orderButton").click(function() {
         var notes = $("#notes").val();
         var quantity = $("#quantity").val();
-        var flavor = $("input[name='Flavor']:checked").val();
+        var topping = $("input[name='Flavor']:checked").val();
 
         if (notes.toLowerCase().includes("vegan")) {
             alert("Please note: our cheesecakes contain dairy.");
         } else {
-            $("#orderForm").html("Thank you! Your order has been placed.<br>" +
-                                 "Topping: " + flavor + "<br>" +
-                                 "Quantity: " + quantity + "<br>" +
-                                 "Notes: " + notes);
+            // Send POST request to the server
+            $.post('/neworder', {
+                quantity: quantity,
+                topping: topping,
+                notes: notes
+            }, function(response) {
+                $("#orderForm").html("Thank you! Your order has been placed.<br>" +
+                                     "Topping: " + topping + "<br>" +
+                                     "Quantity: " + quantity + "<br>" +
+                                     "Notes: " + notes);
+            }).fail(function() {
+                alert("Error: order could not be placed.");
+            });
         }
     });
+
 
 // Show the dropdown menu when the mouse enters over month
     $("#selectedMonth, #monthDropdown").mouseenter(function() {
